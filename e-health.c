@@ -47,14 +47,14 @@
 #include <stdio.h>
 #include <string.h>
 
-#ifdef SLS_USING_CC2650
+#ifdef USING_CC2650
 #include "board-peripherals.h"
 #include "rf-core/rf-ble.h"
 #include "ti-lib.h"
 #include "dev/cc26xx-uart.h"
 #endif
 
-#ifdef SLS_USING_CC2538DK
+#ifdef USING_CC2538DK
 #include "dev/uart.h"
 #include "dev/gpio.h"
 #endif
@@ -66,7 +66,7 @@
 #include "net/ip/uip-debug.h"
 /*---------------------------------------------------------------------------*/
 /* Default is to send a packet every 60 seconds */
-#define MAX_PAYLOAD_LEN 	120
+#define MAX_PAYLOAD_LEN 	8
 #define SEND_INTERVAL		(15 * CLOCK_SECOND)
 
 static  char rxbuf[MAX_PAYLOAD_LEN];		/* used for UART0 interface */
@@ -99,12 +99,12 @@ AUTOSTART_PROCESSES(&udp_client_process);
 /*---------------------------------------------------------------------------*/
 static void init_default_parameters(void) {
 	// init UART0-1
-#ifdef SLS_USING_CC2538DK
+#ifdef USING_CC2538DK
 	uart_init(0); 		
  	uart_set_input(0,uart0_input_byte);
 #endif
 
-#ifdef SLS_USING_CC2650
+#ifdef USING_CC2650
 	cc26xx_uart_init();		
  	cc26xx_uart_set_input(uart0_input_byte);
 #endif

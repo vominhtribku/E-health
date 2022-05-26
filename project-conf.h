@@ -133,7 +133,7 @@
 #if (SECURITY_EN)
 
 /* software-based AES */
-#if (!SLS_USING_HW)
+#if (!USING_HW)
 #undef AES_128_CONF    
 #define AES_128_CONF aes_128_driver
 #endif 

@@ -38,14 +38,14 @@
 #define UDP_CLIENT_PORT   8765
 #define UDP_SERVER_PORT   5678
 /*---------------------------------------------------------------------------*/
-#define SLS_USING_HW	1
+#define USING_HW	1
 
-#if (SLS_USING_HW==0)
-#define SLS_USING_CC2650
+#if (USING_HW==0)
+#define USING_CC2650
 #endif
 
-#if (SLS_USING_HW==1)
-#define SLS_USING_CC2538DK
+#if (USING_HW==1)
+#define USING_CC2538DK
 #endif
 
 #define	SFD 	0x7E		/* Start of E-HEALTH frame Delimitter */
